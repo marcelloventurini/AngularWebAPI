@@ -37,19 +37,48 @@ export class FuncionariosComponent implements OnInit {
     });
   }
 
+  ExibirFormularioAtt(funcionarioId: number): void {
+    this.visibilidadeTabela = false;
+    this.visibilidadeFormulario = true;
+
+    this.funcionariosService.PegarPeloId(funcionarioId).subscribe(resultado => {
+      this.tituloFormulario = `Atualizar ${resultado.nome}`;
+
+      this.formulario = new FormGroup({
+        funcionarioId: new FormControl(resultado.funcionarioId),
+        nome: new FormControl(resultado.nome),
+        rg: new FormControl(resultado.rg),
+        departamentoId: new FormControl(resultado.departamentoId)
+      });
+    });
+  } 
+
   EnviarFormulario(): void {
     const funcionario: Funcionario = this.formulario.value;
 
-    this.funcionariosService.SalvarFuncionario(funcionario).subscribe(resultado => {
-      this.visibilidadeFormulario = false;
-      this.visibilidadeTabela = true;
-
-      alert('Funcionário inserido com sucesso.');
-
-      this.funcionariosService.PegarTodos().subscribe(registros => {
-        this.funcionarios = registros;
-      })
-    });
+    if (funcionario.funcionarioId > 0) {
+      this.funcionariosService.AtualizarFuncionario(funcionario).subscribe(resultado => {
+        this.visibilidadeFormulario = false;
+        this.visibilidadeTabela = true;
+  
+        alert('Funcionário atualizado com sucesso.');
+  
+        this.funcionariosService.PegarTodos().subscribe(registros => {
+          this.funcionarios = registros;
+        }); 
+      });
+    } else {
+      this.funcionariosService.SalvarFuncionario(funcionario).subscribe(resultado => {
+        this.visibilidadeFormulario = false;
+        this.visibilidadeTabela = true;
+  
+        alert('Funcionário inserido com sucesso.');
+  
+        this.funcionariosService.PegarTodos().subscribe(registros => {
+          this.funcionarios = registros;
+        });
+      });
+    }
   }
 
   Voltar(): void {

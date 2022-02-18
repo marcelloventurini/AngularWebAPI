@@ -22,7 +22,7 @@ export class FuncionariosService {
   }
 
   PegarPeloId(funcionarioId: number): Observable<Funcionario> {
-    const apiUrl = `${this.url} / ${funcionarioId}`;
+    const apiUrl = `${this.url}/${funcionarioId}`;
     return this.http.get<Funcionario>(apiUrl);
   }
 
@@ -35,7 +35,7 @@ export class FuncionariosService {
   }
 
   ExcluirFuncionario(funcionarioId: number): Observable<any> {
-    const apiUrl = `${this.url} / ${funcionarioId}`;
+    const apiUrl = `${this.url}/${funcionarioId}`;
     return this.http.delete<number>(apiUrl, httpOptions);
   }
 }
