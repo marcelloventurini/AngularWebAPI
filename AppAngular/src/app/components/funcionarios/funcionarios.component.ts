@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Funcionario } from 'src/app/Funcionario';
 import { FuncionariosService } from 'src/app/funcionarios.service';
 
@@ -12,11 +13,15 @@ export class FuncionariosComponent implements OnInit {
   formulario: any;
   tituloFormulario = '';
   funcionarios: Funcionario[] = [];
+  nomeFuncionario = '';
+  funcionarioId = 0;
 
   visibilidadeTabela: boolean = true;
   visibilidadeFormulario: boolean = false;
 
-  constructor(private funcionariosService: FuncionariosService) {}
+  modalRef!: BsModalRef;
+
+  constructor(private funcionariosService: FuncionariosService, private modalService: BsModalService) {}
 
   ngOnInit(): void {
     this.funcionariosService.PegarTodos().subscribe(resultado => {
@@ -86,4 +91,21 @@ export class FuncionariosComponent implements OnInit {
     this.visibilidadeFormulario = false;
   }
 
+  ExibirConfirmacaoExclusao(funcionarioId: number, nomeFuncionario: string, conteudoModal: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(conteudoModal);
+    this.funcionarioId = funcionarioId;
+    this.nomeFuncionario = nomeFuncionario;
+  }
+
+  ExcluirFuncionario(funcionarioId: number) {
+    this.funcionariosService.ExcluirFuncionario(funcionarioId).subscribe(resultado => {
+      this.modalRef.hide();
+      
+      alert('Funcionário excluído com sucesso');
+
+      this.funcionariosService.PegarTodos().subscribe(registros => {
+        this.funcionarios = registros;
+      });
+    });
+  }
 }

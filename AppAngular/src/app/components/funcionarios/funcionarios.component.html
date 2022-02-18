@@ -25,7 +25,7 @@
           <td>{{funcionario.departamentoId}}</td>
           <td>
             <button type="button" class="btn btn-outline-primary me-md-2" (click)="ExibirFormularioAtt(funcionario.funcionarioId)">Atualizar</button>
-            <button type="button" class="btn btn-outline-danger">Excluir</button>
+            <button type="button" class="btn btn-outline-danger" (click)="ExibirConfirmacaoExclusao(funcionario.funcionarioId, funcionario.nome, conteudoModal)">Excluir</button>
           </td>
         </tr>
       </tbody>
@@ -65,3 +65,20 @@
     </div>
   </div>
 </div>
+
+<ng-template #conteudoModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Prosseguir com a exclusão de {{nomeFuncionario}}?
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
+    <button type="button" class="btn btn-outline-danger" (click)="ExcluirFuncionario(funcionarioId)">Confirmar</button>
+  </div>
+</ng-template>
