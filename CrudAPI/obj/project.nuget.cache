@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J9lORvssSTFWV3zi9VJvJRO5IqrGwbSIJuY3DBULyH/nOuoiK3TE+cYgDYDmLgRmZptKiIsERJ30Qvvpsst5yg==",
+  "dgSpecHash": "k2zWuwi5M+GRrwmlvSZuo3D0SSC9S5pjFZeStQKxIUqpIJaLiAUlKksBU32zqD7da63ew+zESQJ3vCFfGAT3/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\CrudAPI.csproj",
+  "projectFilePath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\CrudAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Desktop\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Desktop\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

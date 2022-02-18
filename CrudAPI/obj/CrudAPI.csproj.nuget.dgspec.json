@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\CrudAPI.csproj": {}
+    "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\CrudAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\CrudAPI.csproj": {
+    "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\CrudAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\CrudAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\CrudAPI.csproj",
         "projectName": "CrudAPI",
-        "projectPath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\CrudAPI.csproj",
+        "projectPath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\CrudAPI.csproj",
         "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\angularcrud\\crudapi\\obj\\",
+        "outputPath": "C:\\Users\\Desktop\\OneDrive\\Documents\\estudos\\AngularWebApi\\crudapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
