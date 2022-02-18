@@ -11,10 +11,23 @@ import { FuncionariosService } from 'src/app/funcionarios.service';
 export class FuncionariosComponent implements OnInit {
   formulario: any;
   tituloFormulario = '';
+  funcionarios: Funcionario[] = [];
+
+  visibilidadeTabela: boolean = true;
+  visibilidadeFormulario: boolean = false;
 
   constructor(private funcionariosService: FuncionariosService) {}
 
   ngOnInit(): void {
+    this.funcionariosService.PegarTodos().subscribe(resultado => {
+      this.funcionarios = resultado;
+    });
+  }
+
+  ExibirFormularioCadastro(): void {
+    this.visibilidadeTabela = false;
+    this.visibilidadeFormulario = true;
+
     this.tituloFormulario = 'Novo Funcionário';
 
     this.formulario = new FormGroup({
@@ -28,8 +41,20 @@ export class FuncionariosComponent implements OnInit {
     const funcionario: Funcionario = this.formulario.value;
 
     this.funcionariosService.SalvarFuncionario(funcionario).subscribe(resultado => {
+      this.visibilidadeFormulario = false;
+      this.visibilidadeTabela = true;
+
       alert('Funcionário inserido com sucesso.');
+
+      this.funcionariosService.PegarTodos().subscribe(registros => {
+        this.funcionarios = registros;
+      })
     });
+  }
+
+  Voltar(): void {
+    this.visibilidadeTabela = true;
+    this.visibilidadeFormulario = false;
   }
 
 }
