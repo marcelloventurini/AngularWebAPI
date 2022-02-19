@@ -1,0 +1,77 @@
+<div class="container p-5" *ngIf="visibilidadeTabela">
+  <div class="border border-light rounded p-5">
+    <div>
+      <button type="button" class="btn btn-primary" (click)="ExibirFormularioCadastro()">Novo Departamento</button>
+    </div>
+
+    <hr>
+
+    <table class="table" *ngIf="departamentos">
+      <thead class="table-dark">
+        <tr>
+          <th>Nome</th>
+          <th>Sigla</th>
+          <th>Id do Departamento</th>
+          <th>Opções</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let departamento of departamentos">
+          <td>{{departamento.nome}}</td>
+          <td>{{departamento.sigla}}</td>
+          <td>{{departamento.departamentoId}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-primary me-md-2" (click)="ExibirFormularioAtt(departamento.departamentoId)">Atualizar</button>
+            <button type="button" class="btn btn-outline-danger me-md-2" (click)="ExibirConfirmacaoExclusao(departamento.departamentoId, departamento.nome, conteudoModal)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="container p-4" *ngIf="visibilidadeFormulario">
+  <div class="row justify-content-center">
+    <div class="col-6 border border-light rounded p-5 shadow" *ngIf="formulario">
+      <h1>{{tituloFormulario}}</h1>
+      <hr>
+
+      <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+        <div class="form-group mb-4">
+          <label>Nome</label>
+          <input type="text" class="form-control form-control-sm" formControlName="nome">
+        </div>
+
+        <div class="form-group mb-4">
+          <label>Sigla</label>
+          <input type="text" class="form-control form-control-sm" formControlName="sigla">
+        </div>
+
+        <div class="container">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-outline-success">Salvar</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="Voltar()">Voltar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ng-template #conteudoModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Prosseguir com a exclusão de {{nomeDepartamento}}?
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
+    <button type="button" class="btn btn-outline-danger" (click)="ExcluirDepartamento(departamentoId)">Confirmar</button>
+  </div>
+</ng-template>

@@ -10,11 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FuncionariosComponent } from './components/funcionarios/funcionarios.component';
+import { DepartamentosService } from './departamentos.service';
+import { DepartamentosComponent } from './components/departamentos/departamentos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FuncionariosComponent
+    FuncionariosComponent,
+    DepartamentosComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { FuncionariosComponent } from './components/funcionarios/funcionarios.co
     ReactiveFormsModule,
     ModalModule.forRoot()
   ],
-  providers: [HttpClientModule, FuncionariosService],
+  providers: [HttpClientModule, FuncionariosService, DepartamentosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
