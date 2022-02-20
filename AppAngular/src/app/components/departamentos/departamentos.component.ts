@@ -1,15 +1,20 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Departamento } from 'src/app/Departamento';
 import { DepartamentosService } from 'src/app/departamentos.service';
+import { FuncionariosService } from 'src/app/funcionarios.service';
+import { FuncionariosComponent } from '../funcionarios/funcionarios.component';
+import { Funcionario } from 'src/app/Funcionario';
 
 @Component({
   selector: 'app-departamentos',
   templateUrl: './departamentos.component.html',
   styleUrls: ['./departamentos.component.css']
 })
+
 export class DepartamentosComponent implements OnInit {
+
   formulario: any;
   tituloFormulario = '';
   departamentos: Departamento[] = [];
@@ -106,5 +111,9 @@ export class DepartamentosComponent implements OnInit {
         this.departamentos = registros;
       });
     });
+  }
+
+  ExibirFuncionarios(modalFuncionarios: TemplateRef<any>): void {
+    this.modalRef = this.modalService.show(modalFuncionarios);
   }
 }
