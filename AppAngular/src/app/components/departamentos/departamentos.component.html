@@ -17,8 +17,8 @@
         </tr>
       </thead>
 
-      <tbody>
-        <tr *ngFor="let departamento of departamentos">
+      <tbody *ngFor="let departamento of departamentos">
+        <tr>
           <td>{{departamento.nome}}</td>
           <td>{{departamento.sigla}}</td>
           <td>{{departamento.departamentoId}}</td>
