@@ -13,7 +13,6 @@
           <th>Sigla</th>
           <th>Id do Departamento</th>
           <th>Opções</th>
-          <th>Visualizar</th>
         </tr>
       </thead>
 
@@ -25,9 +24,6 @@
           <td>
             <button type="button" class="btn btn-outline-primary me-md-2" (click)="ExibirFormularioAtt(departamento.departamentoId)">Atualizar</button>
             <button type="button" class="btn btn-outline-danger me-md-2" (click)="ExibirConfirmacaoExclusao(departamento.departamentoId, departamento.nome, conteudoModal)">Excluir</button>
-          </td>
-          <td>
-            <button type="button" class="btn btn-dark me-md-2" (click)="ExibirFuncionarios(modalFuncionarios)">Funcionários</button>
           </td>
         </tr>
       </tbody>
@@ -77,21 +73,5 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modalRef.hide()">Cancelar</button>
     <button type="button" class="btn btn-outline-danger" (click)="ExcluirDepartamento(departamentoId)">Confirmar</button>
-  </div>
-</ng-template>
-
-<ng-template #modalFuncionarios>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Funcionários</h4>
-    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
-      <span aria-hidden="true" class="visually-hidden">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    
-  </div>
-
-  <div class="modal-footer">
-    <a class="btn btn-primary" href="funcionarios" role="button">Cadastrar Novo</a>
   </div>
 </ng-template>
