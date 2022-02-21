@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Funcionario } from 'src/app/Funcionario';
@@ -10,6 +10,8 @@ import { FuncionariosService } from 'src/app/funcionarios.service';
   styleUrls: ['./funcionarios.component.css']
 })
 export class FuncionariosComponent implements OnInit {
+  dptoId = Number(localStorage.getItem('dptoId'));
+
   formulario: any;
   tituloFormulario = '';
   funcionarios: Funcionario[] = [];

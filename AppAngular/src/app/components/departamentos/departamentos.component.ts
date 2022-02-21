@@ -108,4 +108,10 @@ export class DepartamentosComponent implements OnInit {
       });
     });
   }
+
+  FuncionariosDepartamento(departamentoId: number): void {
+    this.departamentosService.PegarPeloId(departamentoId).subscribe(resultado => {
+      localStorage.setItem('dptoId', JSON.stringify(resultado.departamentoId));
+    });
+  }
 }

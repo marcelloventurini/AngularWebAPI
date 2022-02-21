@@ -6,7 +6,7 @@
 
     <hr>
 
-    <table class="table" *ngIf="funcionarios">
+    <table class="table" *ngIf="dptoId">
       <thead class="table-dark">
         <tr>
           <th>Nome</th>
@@ -17,8 +17,8 @@
         </tr>
       </thead>
 
-      <tbody>
-        <tr *ngFor="let funcionario of funcionarios">
+      <tbody *ngFor="let funcionario of funcionarios">
+        <tr *ngIf="dptoId == funcionario.departamentoId">
           <td>{{funcionario.nome}}</td>
           <td>{{funcionario.rg}}</td>
           <td>{{funcionario.funcionarioId}}</td>

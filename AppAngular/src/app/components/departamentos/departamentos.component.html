@@ -13,6 +13,7 @@
           <th>Sigla</th>
           <th>Id do Departamento</th>
           <th>Opções</th>
+          <th>Funcionários</th>
         </tr>
       </thead>
 
@@ -24,6 +25,9 @@
           <td>
             <button type="button" class="btn btn-outline-primary me-md-2" (click)="ExibirFormularioAtt(departamento.departamentoId)">Atualizar</button>
             <button type="button" class="btn btn-outline-danger me-md-2" (click)="ExibirConfirmacaoExclusao(departamento.departamentoId, departamento.nome, conteudoModal)">Excluir</button>
+          </td>
+          <td>
+            <a class="btn btn-dark" role="button" [routerLink]="['/funcionarios']" routerLinkActive="router-link-active" (mousedown)="FuncionariosDepartamento(departamento.departamentoId)">Visualizar</a>
           </td>
         </tr>
       </tbody>
