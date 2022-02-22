@@ -7,7 +7,6 @@ namespace CrudAPI.Models
 {
   public class Departamento
   {
-		
     public int departamentoId { get; set; }
 
     public string nome { get; set; }
